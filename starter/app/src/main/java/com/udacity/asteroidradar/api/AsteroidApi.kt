@@ -1,5 +1,6 @@
 package com.udacity.asteroidradar.api
 
+import com.udacity.asteroidradar.PictureOfDay
 import kotlinx.coroutines.Deferred
 import org.json.JSONObject
 import retrofit2.Response
@@ -19,11 +20,11 @@ interface AsteroidApi {
      * api_key	    string	        DEMO_KEY	            api.nasa.gov key for expanded usage
      */
     @GET("neo/rest/v1/feed")
-    fun getAsteroidsBasedOnClosestApproach(@Query("start_date")startDate:String, @Query("end_date") endDate: String, @Query("destination") destination: String, @Query("api_key") apiKey: String): Deferred<Response<JSONObject>>
+    fun getAsteroidsBasedOnClosestApproach(@Query("start_date")startDate:String,@Query("end_date") endDate: String,@Query("api_key") apiKey: String): Deferred<Any>
 
     /**
      * Image of the day
      */
     @GET("planetary/apod")
-    fun getImageOfTheDay( @Query("api_key") apiKey: String): Deferred<Response<JSONObject>>
+    fun getImageOfTheDay( @Query("api_key") apiKey: String): Deferred<PictureOfDay>
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -28,7 +29,14 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/placeholder_picture_of_day"/>
+                app:srcCompat="@drawable/placeholder_picture_of_day"
+                android:contentDescription="@string/displays_the_image_of_the_day" />
+
+            <VideoView
+                android:id="@+id/activity_main_video_of_the_day"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"/>
 
             <TextView
                 android:id="@+id/textView"
@@ -47,6 +55,8 @@
             android:id="@+id/asteroid_recycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            tools:itemCount="4"
+            tools:listitem="@layout/list_item_asteroid"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

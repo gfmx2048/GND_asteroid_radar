@@ -1,6 +1,8 @@
 package com.udacity.asteroidradar.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.udacity.asteroidradar.BuildConfig
 import com.udacity.asteroidradar.Constants
 import okhttp3.OkHttpClient
@@ -38,13 +40,21 @@ object RetrofitClient {
             return okHttpBuilder
         }
 
+    /**
+     * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
+     * full Kotlin compatibility.
+     */
+    private val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+
 
     val instance: AsteroidApi by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(okHttpClientInterceptor.build())
-            .addConverterFactory(MoshiConverterFactory.create())
-         //   .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
 
         //create retrofit client

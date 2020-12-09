@@ -77,4 +77,6 @@ dependencies {
 
     //Http logging interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+    //timber by jake wharton
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
