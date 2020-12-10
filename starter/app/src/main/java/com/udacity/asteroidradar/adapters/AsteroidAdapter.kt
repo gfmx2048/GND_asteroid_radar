@@ -5,12 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.LayoutRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.asteroidradar.Asteroid
 import com.udacity.asteroidradar.R
-import com.udacity.asteroidradar.databinding.ListItemAsteroidBinding
 
 class AsteroidAdapter: RecyclerView.Adapter<AsteroidViewHolder>() {
     var mData =  listOf<Asteroid>()
@@ -23,7 +20,9 @@ class AsteroidAdapter: RecyclerView.Adapter<AsteroidViewHolder>() {
 
     override fun onBindViewHolder(holder: AsteroidViewHolder, position: Int) {
         val item = mData[position]
-        holder.name.text = item.toString()
+        holder.tvName.text = item.codename
+        holder.tvDate.text = item.closeApproachDate
+        holder.ivImage.setImageResource(if(item.isPotentiallyHazardous) R.drawable.ic_status_potentially_hazardous else R.drawable.ic_status_normal)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsteroidViewHolder {
@@ -40,5 +39,7 @@ class AsteroidAdapter: RecyclerView.Adapter<AsteroidViewHolder>() {
  * ViewHolder for asteroid items. All work is done by data binding.
  */
 class AsteroidViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val name: TextView = itemView.findViewById(R.id.name)
+    val tvName: TextView = itemView.findViewById(R.id.tv_code_name)
+    val tvDate: TextView = itemView.findViewById(R.id.tv_close_date)
+    val ivImage: ImageView = itemView.findViewById(R.id.iv_status)
 }

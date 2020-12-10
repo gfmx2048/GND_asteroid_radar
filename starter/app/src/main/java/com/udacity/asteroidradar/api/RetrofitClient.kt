@@ -13,9 +13,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 // Singleton pattern in Kotlin: https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations
-/**
- * Will use {@Link RetrofitClientWithDynamicConverter} as we need 2 different converters to be added
- */
 object RetrofitClient {
 
     private val okHttpClientInterceptor: OkHttpClient.Builder

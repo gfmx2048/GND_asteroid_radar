@@ -1,11 +1,8 @@
 package com.udacity.asteroidradar.api
 
 import com.udacity.asteroidradar.PictureOfDay
-import kotlinx.coroutines.Deferred
-import okhttp3.ResponseBody
-import org.json.JSONObject
-import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 /**
