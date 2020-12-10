@@ -46,12 +46,10 @@ class MainFragment : Fragment() {
 
         mViewModel.asteroids.observe(viewLifecycleOwner, {
             it?.let {
-                mBinding.asteroidRecycler.apply {
-                    val asteroidAdapter = AsteroidAdapter()
-                    adapter = asteroidAdapter
-                    asteroidAdapter.mData = it
-                }
+                val mAdapter= AsteroidAdapter()
+                mBinding.asteroidRecycler.adapter = mAdapter
                 mBinding.asteroidRecycler.visibility = View.VISIBLE
+                mAdapter.mData = it
                 mViewModel.clearAsteroidsResponse()
             }
         })

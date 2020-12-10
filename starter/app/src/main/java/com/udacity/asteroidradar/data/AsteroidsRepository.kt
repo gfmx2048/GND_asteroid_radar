@@ -2,7 +2,6 @@ package com.udacity.asteroidradar.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.squareup.moshi.Moshi
 import com.udacity.asteroidradar.Asteroid
 import com.udacity.asteroidradar.BuildConfig
 import com.udacity.asteroidradar.PictureOfDay
@@ -52,16 +51,12 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
      */
     suspend fun getAsteroidsWithRetrofit(startDate: String,endDate: String) {
         withContext(Dispatchers.IO) {
-            //Get the Deferred object for our retrofit request
-            val getResponseFromRetrofit = RetrofitClient.instance.getAsteroidsBasedOnClosestApproach("2020-12-01","2020-12-07",BuildConfig.API_KEY)
             try {
-                //await the deferred response
-                val apiResponse = getResponseFromRetrofit.await()
-                val jsonResponse = JSONObject(apiResponse.toString())
-                Timber.d("RESPONSE FROM GET ASTEROIDS ${jsonResponse}}")
-
-                val sortedList = parseAsteroidsJsonResult(jsonResponse)
-                _asteroidsLD.postValue(sortedList)
+                val getResponseFromRetrofit = RetrofitClient.instance.getAsteroidsBasedOnClosestApproachAsync("2020-12-05","2020-12-10",BuildConfig.API_KEY)
+                Timber.d("RESPONSE FROM GET ASTEROIDS ${getResponseFromRetrofit}}")
+                val jsonResponse = JSONObject(getResponseFromRetrofit)
+                val asteroidsList = parseAsteroidsJsonResult(jsonResponse)
+                _asteroidsLD.postValue(asteroidsList)
 
             } catch (e: Exception) {
                 Timber.d("\nerror.message ${e.message}\n error.localized ${e.localizedMessage} \n error.cause ${e.cause} \n error.stackTrace ${e.stackTrace} \n e.javaClass ${e.javaClass.name} and suppressed.size ${e.suppressed.size}")
@@ -83,13 +78,10 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
 
     suspend fun getImageOfTheDay() {
         withContext(Dispatchers.IO) {
-            //Get the Deferred object for our retrofit request
-            val getResponseFromRetrofit = RetrofitClient.instance.getImageOfTheDay(BuildConfig.API_KEY)
             try {
-                //await the deferred response
-                val apiResponse = getResponseFromRetrofit.await()
-                Timber.d("RESPONSE FROM GET PICTURE OF THE DAY ${apiResponse}}")
-                _pictureOfTheDay.postValue(apiResponse)
+                val getResponseFromRetrofit = RetrofitClient.instance.getImageOfTheDayAsync(BuildConfig.API_KEY)
+                Timber.d("RESPONSE FROM GET PICTURE OF THE DAY ${getResponseFromRetrofit}}")
+                _pictureOfTheDay.postValue(getResponseFromRetrofit)
 
             } catch (e: Exception) {
                 Timber.d("\nerror.message ${e.message}\n error.localized ${e.localizedMessage} \n error.cause ${e.cause} \n error.stackTrace ${e.stackTrace} \n e.javaClass ${e.javaClass.name} and suppressed.size ${e.suppressed.size}")

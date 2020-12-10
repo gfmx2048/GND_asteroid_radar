@@ -9,9 +9,13 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 // Singleton pattern in Kotlin: https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations
+/**
+ * Will use {@Link RetrofitClientWithDynamicConverter} as we need 2 different converters to be added
+ */
 object RetrofitClient {
 
     private val okHttpClientInterceptor: OkHttpClient.Builder
@@ -53,6 +57,7 @@ object RetrofitClient {
         val retrofit = Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(okHttpClientInterceptor.build())
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
