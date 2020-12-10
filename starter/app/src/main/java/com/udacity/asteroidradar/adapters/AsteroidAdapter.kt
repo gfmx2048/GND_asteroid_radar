@@ -1,36 +1,21 @@
 package com.udacity.asteroidradar.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.asteroidradar.Asteroid
-import com.udacity.asteroidradar.R
+import com.udacity.asteroidradar.databinding.ListItemAsteroidBinding
 
-class AsteroidAdapter: RecyclerView.Adapter<AsteroidViewHolder>() {
-    var mData =  listOf<Asteroid>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun getItemCount() = mData.size
-
-    override fun onBindViewHolder(holder: AsteroidViewHolder, position: Int) {
-        val item = mData[position]
-        holder.tvName.text = item.codename
-        holder.tvDate.text = item.closeApproachDate
-        holder.ivImage.setImageResource(if(item.isPotentiallyHazardous) R.drawable.ic_status_potentially_hazardous else R.drawable.ic_status_normal)
-    }
+class AsteroidAdapter(private val clickListener: AsteroidListener) : ListAdapter<Asteroid, AsteroidViewHolder>(AsteroidsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsteroidViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater
-            .inflate(R.layout.list_item_asteroid, parent, false)
+        return AsteroidViewHolder.from(parent)
+    }
 
-        return AsteroidViewHolder(view)
+    override fun onBindViewHolder(holder: AsteroidViewHolder, position: Int) {
+        holder.bind(getItem(position)!!,clickListener)
     }
 }
 
@@ -38,8 +23,34 @@ class AsteroidAdapter: RecyclerView.Adapter<AsteroidViewHolder>() {
 /**
  * ViewHolder for asteroid items. All work is done by data binding.
  */
-class AsteroidViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val tvName: TextView = itemView.findViewById(R.id.tv_code_name)
-    val tvDate: TextView = itemView.findViewById(R.id.tv_close_date)
-    val ivImage: ImageView = itemView.findViewById(R.id.iv_status)
+class AsteroidViewHolder private constructor(private val binding: ListItemAsteroidBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    fun bind(asteroid: Asteroid, clickListener: AsteroidListener) {
+        binding.asteroid = asteroid
+        binding.clickListener = clickListener
+        binding.executePendingBindings()
+    }
+
+    companion object {
+        fun from(parent: ViewGroup): AsteroidViewHolder {
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val binding = ListItemAsteroidBinding.inflate(layoutInflater,parent,false)
+            return AsteroidViewHolder(binding)
+        }
+    }
+}
+
+class AsteroidsDiffCallback : DiffUtil.ItemCallback<Asteroid>() {
+    override fun areItemsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
+        return oldItem.id == newItem.id // preferably check the ids here
+    }
+
+    override fun areContentsTheSame(oldItem: Asteroid, newItem: Asteroid): Boolean {
+        return oldItem == newItem // equality check on all the fields, as it is a data class
+    }
+
+}
+
+class AsteroidListener(val clickListener: (asteroid: Asteroid) -> Unit){
+    fun onClick(asteroid: Asteroid) = clickListener(asteroid)
 }

@@ -38,14 +38,6 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
         _errorLD.value =null
     }
 
-    fun clearAsteroidsResponse() {
-        _asteroidsLD.value =null
-    }
-
-    fun clearPictureOfTheDay(){
-        _pictureOfTheDay.value =null
-    }
-
     /**
      * used to get all the asteroids
      */

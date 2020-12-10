@@ -2,12 +2,15 @@ package com.udacity.asteroidradar.main
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.adapters.AsteroidAdapter
+import com.udacity.asteroidradar.adapters.AsteroidListener
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import timber.log.Timber
 
@@ -46,11 +49,12 @@ class MainFragment : Fragment() {
 
         mViewModel.asteroids.observe(viewLifecycleOwner, {
             it?.let {
-                val mAdapter= AsteroidAdapter()
+                val mAdapter= AsteroidAdapter(AsteroidListener {
+                   mViewModel.onAsteroidClicked(it)
+                })
                 mBinding.asteroidRecycler.adapter = mAdapter
                 mBinding.asteroidRecycler.visibility = View.VISIBLE
-                mAdapter.mData = it
-                mViewModel.clearAsteroidsResponse()
+                mAdapter.submitList(it)
             }
         })
 
@@ -70,7 +74,14 @@ class MainFragment : Fragment() {
                     Picasso.with(requireContext()).load(it.url).into(mBinding.activityMainImageOfTheDay)
                 }
                 mBinding.textView.text = it.title
-                mViewModel.clearPictureOfTheDayResponse()
+            }
+        })
+
+        mViewModel.selectedAsteroid.observe(viewLifecycleOwner, {
+            it?.let {
+                //We could make details fragment to implement mainViewModel so it could listen to the selected Asteroid immediately, but i will use safe Args here because it's already added to the navigation
+                mViewModel.clearSelectedAsteroid()
+                this.findNavController().navigate(MainFragmentDirections.actionShowDetail(it))
             }
         })
     }

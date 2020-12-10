@@ -3,11 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+   <data>
+       <variable
+           name="asteroid"
+           type="com.udacity.asteroidradar.Asteroid" />
+
+       <variable
+           name="clickListener"
+           type="com.udacity.asteroidradar.adapters.AsteroidListener" />
+   </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:paddingStart="6dp"
         android:paddingEnd="6dp"
         android:paddingTop="4dp"
         android:paddingBottom="2dp"
+        android:onClick="@{() -> clickListener.onClick(asteroid)}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -25,6 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:text="@{asteroid.codename}"
             tools:text="PlaceHolder text" />
 
         <TextView
@@ -35,6 +47,7 @@
             android:textSize="18sp"
             android:textColor="@color/text_grey"
             android:layout_height="wrap_content"
+            android:text="@{asteroid.closeApproachDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_code_name"
@@ -47,8 +60,10 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_close_date"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_status_normal"
+            app:statusIcon="@{asteroid.potentiallyHazardous}"
             app:layout_constraintStart_toEndOf="@+id/guideline3"
-            app:layout_constraintTop_toTopOf="@+id/tv_code_name" />
+            app:layout_constraintTop_toTopOf="@+id/tv_code_name"
+            android:contentDescription="@string/hazardous_or_not" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
