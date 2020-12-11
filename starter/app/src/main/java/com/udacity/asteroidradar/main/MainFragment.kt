@@ -2,15 +2,14 @@ package com.udacity.asteroidradar.main
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.squareup.picasso.Picasso
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.adapters.AsteroidAdapter
 import com.udacity.asteroidradar.adapters.AsteroidListener
+import com.udacity.asteroidradar.data.AsteroidsFilter
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import timber.log.Timber
 
@@ -23,16 +22,22 @@ class MainFragment : Fragment() {
      *
      * Use "by navGraphViewModels(R.id.some_nav_graph)" in a fragment where the VM benefits by being scoped to a specific navigation graph or nested graph.
      */
-    private val mViewModel: MainViewModel by activityViewModels { MainViewModel.MainViewModelFactory(requireActivity().application) }
+    private val mViewModel: MainViewModel by activityViewModels {
+        MainViewModel.MainViewModelFactory(
+            requireActivity().application
+        )
+    }
 
     private lateinit var mBinding: FragmentMainBinding
+    private lateinit var mAdapter: AsteroidAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mBinding = FragmentMainBinding.inflate(inflater)
         mBinding.lifecycleOwner = this
-
         mBinding.viewModel = mViewModel
+
+        mAdapter = AsteroidAdapter(AsteroidListener { mViewModel.onAsteroidClicked(it) })
+        mBinding.asteroidRecycler.adapter = mAdapter
 
         setHasOptionsMenu(true)
         subscribeToLiveData()
@@ -40,7 +45,7 @@ class MainFragment : Fragment() {
     }
 
     private fun subscribeToLiveData() {
-        mViewModel.error.observe(viewLifecycleOwner, Observer {
+        mViewModel.error.observe(viewLifecycleOwner, {
             it?.let {
                 Timber.d(it)
                 mViewModel.clearErrorResponse()
@@ -49,31 +54,8 @@ class MainFragment : Fragment() {
 
         mViewModel.asteroids.observe(viewLifecycleOwner, {
             it?.let {
-                val mAdapter= AsteroidAdapter(AsteroidListener {
-                   mViewModel.onAsteroidClicked(it)
-                })
-                mBinding.asteroidRecycler.adapter = mAdapter
                 mBinding.asteroidRecycler.visibility = View.VISIBLE
                 mAdapter.submitList(it)
-            }
-        })
-
-        mViewModel.pictureOfTheDAy.observe(viewLifecycleOwner, {
-            it?.let {
-                if(it.mediaType.equals("video",true)) {
-                    mBinding.activityMainImageOfTheDay.visibility = View.GONE
-                    mBinding.activityMainVideoOfTheDay.visibility = View.VISIBLE
-                    mBinding.activityMainVideoOfTheDay.apply {
-                        setVideoPath(it.url)
-                        start()
-                    }
-
-                }else{
-                    mBinding.activityMainImageOfTheDay.visibility = View.VISIBLE
-                    mBinding.activityMainVideoOfTheDay.visibility = View.GONE
-                    Picasso.with(requireContext()).load(it.url).into(mBinding.activityMainImageOfTheDay)
-                }
-                mBinding.textView.text = it.title
             }
         })
 
@@ -92,17 +74,14 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.show_all_menu ->{
-
+        mViewModel.updateFilter(
+            when (item.itemId) {
+                R.id.show_week_menu -> AsteroidsFilter.SHOW_WEEK
+                R.id.show_today_menu -> AsteroidsFilter.SHOW_TODAY
+                else -> AsteroidsFilter.SHOW_SAVED
             }
-            R.id.show_today_menu ->{
+        )
 
-            }
-            R.id.show_saved_menu ->{
-
-            }
-        }
         return true
     }
 }

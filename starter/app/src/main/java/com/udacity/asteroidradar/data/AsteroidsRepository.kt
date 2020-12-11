@@ -15,6 +15,18 @@ import retrofit2.HttpException
 import timber.log.Timber
 import java.net.UnknownHostException
 
+enum class AsteroidsApiStatus{
+    LOADING,
+    ERROR,
+    DONE
+}
+
+enum class AsteroidsFilter(val value:String){
+    SHOW_TODAY("'"),
+    SHOW_WEEK(""),
+    SHOW_SAVED("")
+}
+
 class AsteroidsRepository(private val database: AsteroidsDatabase) {
     //the internal mutableLiveData
     private val _asteroidsLD = MutableLiveData<List<Asteroid>?>()
@@ -34,6 +46,13 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
     val errorLD: LiveData<String?>
         get() = _errorLD
 
+    //the internal mutableLiveData
+    private val _status = MutableLiveData<AsteroidsApiStatus?>()
+    //the external immutable LiveData
+    val status: LiveData<AsteroidsApiStatus?>
+        get() = _status
+
+
     fun clearErrorResponse() {
         _errorLD.value =null
     }
@@ -41,18 +60,21 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
     /**
      * used to get all the asteroids
      */
-    suspend fun getAsteroidsWithRetrofit(startDate: String,endDate: String) {
+    suspend fun getAsteroidsWithRetrofit(asteroidsFilter: AsteroidsFilter) {
         withContext(Dispatchers.IO) {
             try {
+                _status.postValue( AsteroidsApiStatus.LOADING)
                 val getResponseFromRetrofit = RetrofitClient.instance.getAsteroidsBasedOnClosestApproachAsync("2020-12-05","2020-12-10",BuildConfig.API_KEY)
                 Timber.d("RESPONSE FROM GET ASTEROIDS ${getResponseFromRetrofit}}")
                 val jsonResponse = JSONObject(getResponseFromRetrofit)
                 val asteroidsList = parseAsteroidsJsonResult(jsonResponse)
+                _status.postValue(AsteroidsApiStatus.DONE)
                 _asteroidsLD.postValue(asteroidsList)
 
             } catch (e: Exception) {
                 Timber.d("\nerror.message ${e.message}\n error.localized ${e.localizedMessage} \n error.cause ${e.cause} \n error.stackTrace ${e.stackTrace} \n e.javaClass ${e.javaClass.name} and suppressed.size ${e.suppressed.size}")
                 Timber.d("What type is error ${e.javaClass}")
+                _status.postValue(AsteroidsApiStatus.ERROR)
                 when (e) {
                     is HttpException ->{
                         _errorLD.postValue("Error")

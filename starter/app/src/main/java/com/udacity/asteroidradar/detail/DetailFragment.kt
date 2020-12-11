@@ -12,17 +12,11 @@ import com.udacity.asteroidradar.databinding.FragmentDetailBinding
 import timber.log.Timber
 
 class DetailFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
-
         val asteroid = DetailFragmentArgs.fromBundle(requireArguments()).selectedAsteroid
-
         binding.asteroid = asteroid
-
-        Timber.d(asteroid.toString())
-
         binding.helpButton.setOnClickListener {
             displayAstronomicalUnitExplanationDialog()
         }
