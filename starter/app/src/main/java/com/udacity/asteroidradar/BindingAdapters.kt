@@ -6,8 +6,10 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.udacity.asteroidradar.data.AsteroidsApiStatus
+import com.udacity.asteroidradar.models.PictureOfDay
 
 @BindingAdapter("statusIcon")
 fun ImageView.bindAsteroidStatusImage(isHazardous: Boolean) {
@@ -56,6 +58,17 @@ fun ProgressBar.bindStatus(status: AsteroidsApiStatus?){
    }
 }
 
+@BindingAdapter("asteroidsApiStatusVisibility")
+fun RecyclerView.bindStatus(status: AsteroidsApiStatus?){
+    status?.let {
+        visibility = when(status){
+            AsteroidsApiStatus.LOADING -> View.GONE
+            AsteroidsApiStatus.ERROR -> View.GONE
+            AsteroidsApiStatus.DONE -> View.VISIBLE
+        }
+    }
+}
+
 @BindingAdapter("pictureOfTheDay")
 fun ImageView.bindPictureOfTheDay(pictureOfDay: PictureOfDay?) {
    pictureOfDay?.let {
@@ -63,7 +76,7 @@ fun ImageView.bindPictureOfTheDay(pictureOfDay: PictureOfDay?) {
            visibility = View.GONE
        }else{
            visibility = View.VISIBLE
-           Picasso.with(context).load(it.url).into(this)
+           Picasso.with(context).load(it.url).error(R.drawable.ic_broken_image).into(this)
        }
    }
 }

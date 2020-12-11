@@ -1,6 +1,6 @@
-package com.udacity.asteroidradar.api
+package com.udacity.asteroidradar.network
 
-import com.udacity.asteroidradar.PictureOfDay
+import com.udacity.asteroidradar.models.PictureOfDay
 import retrofit2.http.GET
 import retrofit2.http.Query
 

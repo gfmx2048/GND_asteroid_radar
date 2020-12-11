@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.udacity.asteroidradar.Asteroid
+import com.udacity.asteroidradar.models.Asteroid
 import com.udacity.asteroidradar.data.database.dao.AsteroidDao
 
-@Database(entities = [Asteroid::class], version = 1)
+@Database(entities = [DatabaseAsteroid::class], version = 1)
 abstract class AsteroidsDatabase : RoomDatabase() {
     abstract val asteroidDao: AsteroidDao
 
@@ -20,7 +20,7 @@ abstract class AsteroidsDatabase : RoomDatabase() {
                         context.applicationContext,
                         AsteroidsDatabase::class.java,
                         "asteroidsDb"
-                    ).build()
+                    ).fallbackToDestructiveMigration().build()
                 }
             }
             return INSTANCE

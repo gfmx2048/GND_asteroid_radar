@@ -2,7 +2,7 @@ package com.udacity.asteroidradar.main
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.udacity.asteroidradar.Asteroid
+import com.udacity.asteroidradar.models.Asteroid
 import com.udacity.asteroidradar.data.AsteroidsFilter
 import com.udacity.asteroidradar.data.AsteroidsRepository
 import com.udacity.asteroidradar.data.database.AsteroidsDatabase
