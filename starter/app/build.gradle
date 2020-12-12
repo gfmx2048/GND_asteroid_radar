@@ -76,7 +76,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Http logging interceptor
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
     //timber by jake wharton
     implementation 'com.jakewharton.timber:timber:4.7.1'
 }

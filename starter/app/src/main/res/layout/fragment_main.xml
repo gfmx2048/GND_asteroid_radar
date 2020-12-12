@@ -30,6 +30,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/loading_animation"
+                app:pictureApiStatus="@{viewModel.pictureStatus}"
                 app:pictureOfTheDay="@{viewModel.pictureOfTheDAy}"
                 android:contentDescription='@{viewModel.pictureOfTheDAy.title ?? @string/image_of_the_day}' />
 
@@ -58,9 +59,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             tools:itemCount="4"
-            app:asteroidsApiStatusVisibility="@{viewModel.status}"
-            tools:listitem="@layout/list_item_asteroid"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:asteroidsAdapter="@{viewModel.asteroids}"
+            tools:listitem="@layout/list_item_asteroid"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

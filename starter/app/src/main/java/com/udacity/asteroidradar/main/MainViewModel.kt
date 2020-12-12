@@ -12,10 +12,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val database = AsteroidsDatabase.getInstance(application)
     private val asteroidsRepository = AsteroidsRepository(database)
 
-    val asteroids = asteroidsRepository.asteroidsLD
+    val asteroids = asteroidsRepository.asteroidsLD // always observe our single source of truth, the db
     val pictureOfTheDAy = asteroidsRepository.pictureOfTheDay
     val error = asteroidsRepository.errorLD
     val status = asteroidsRepository.status
+    val pictureStatus = asteroidsRepository.pictureStatus
 
     //the internal mutableLiveData
     private val _selectedAsteroid = MutableLiveData<Asteroid?>()
@@ -24,17 +25,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         get() = _selectedAsteroid
 
     init {
-        fetchAsteroids(AsteroidsFilter.SHOW_SAVED)
+       //The first time try to refresh the data
+        viewModelScope.launch {
+            asteroidsRepository.getAsteroidsWithRetrofit(AsteroidsFilter.SHOW_WEEK)
+        }
+        updateFilter(AsteroidsFilter.SHOW_SAVED)
         fetchPictureOfTheDay()
     }
 
     fun updateFilter(asteroidsFilter: AsteroidsFilter){
-        fetchAsteroids(asteroidsFilter)
-    }
-
-    private fun fetchAsteroids(asteroidsFilter: AsteroidsFilter){
         viewModelScope.launch {
-            asteroidsRepository.getAsteroidsWithRetrofit(asteroidsFilter)
+            asteroidsRepository.updateFilter(asteroidsFilter)
         }
     }
 

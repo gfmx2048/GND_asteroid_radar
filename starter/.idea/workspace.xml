@@ -6,40 +6,36 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc4fcab-3e25-4cc6-9409-1913daf6e142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/database/DatabaseEntities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/network/DataTransferObjects.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_broken_image.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_connection_error.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/loading_animation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/loading_img.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_4_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/works/DeleteOldDataWorker.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/works/RefreshWeeklyDataWorker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_4_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_4_9_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_4_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_2_4_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/Asteroid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/models/Asteroid.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BaseApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BaseApplication.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/PictureOfDay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/models/PictureOfDay.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/adapters/AsteroidAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/adapters/AsteroidAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/api/AsteroidApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/network/AsteroidApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/api/NetworkUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/network/NetworkUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/api/RetrofitClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/network/RetrofitClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/AsteroidsRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/AsteroidsRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/DataTransferObjects.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/database/AsteroidsDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/database/AsteroidsDatabase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/database/dao/AsteroidDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/database/dao/AsteroidDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/main/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_asteroid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_asteroid.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/main_nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/main_nav_graph.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R58M21TGE6W]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_29_And_10_w_playstore_]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -69,7 +65,7 @@
     <property name="DEBUGGABLE_PROCESS" value="com.udacity.asteroidradar" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_29_And_10_w_playstore_" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-12-10T19:29:07.184Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-12-12T17:15:37.891Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -82,6 +78,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.udacity.asteroidradar.works" />
       <recent name="com.udacity.asteroidradar.api" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
@@ -173,10 +170,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1759" y="-844" key="#com.intellij.ide.util.MemberChooser" timestamp="1607631386543">
+    <state x="1759" y="-844" key="#com.intellij.ide.util.MemberChooser" timestamp="1607798903982">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state x="1759" y="-844" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607631386543" />
+    <state x="1759" y="-844" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607798903982" />
     <state x="1697" y="-770" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1607722135270">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
@@ -205,22 +202,22 @@
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
     <state x="1748" y="-805" key="FileChooserDialogImpl/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607537103691" />
-    <state width="2517" height="628" key="GridCell.Tab.0.bottom" timestamp="1607722580593">
+    <state width="2517" height="676" key="GridCell.Tab.0.bottom" timestamp="1607789478917">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.bottom/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607722580593" />
-    <state width="2517" height="628" key="GridCell.Tab.0.center" timestamp="1607722580593">
+    <state width="2517" height="676" key="GridCell.Tab.0.bottom/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607789478917" />
+    <state width="2517" height="676" key="GridCell.Tab.0.center" timestamp="1607789478917">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.center/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607722580593" />
-    <state width="2517" height="628" key="GridCell.Tab.0.left" timestamp="1607722580593">
+    <state width="2517" height="676" key="GridCell.Tab.0.center/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607789478917" />
+    <state width="2517" height="676" key="GridCell.Tab.0.left" timestamp="1607789478917">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.left/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607722580593" />
-    <state width="2517" height="628" key="GridCell.Tab.0.right" timestamp="1607722580593">
+    <state width="2517" height="676" key="GridCell.Tab.0.left/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607789478917" />
+    <state width="2517" height="676" key="GridCell.Tab.0.right" timestamp="1607789478917">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.right/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607722580593" />
+    <state width="2517" height="676" key="GridCell.Tab.0.right/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607789478917" />
     <state width="733" height="528" key="XDebugger.FullValuePopup" timestamp="1607545654720">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
@@ -229,6 +226,10 @@
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
     <state x="1675" y="-827" width="586" height="534" key="find.popup/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607453777080" />
+    <state x="1624" y="-299" key="run.anything.popup" timestamp="1607788343459">
+      <screen x="688" y="-1080" width="2560" height="1040" />
+    </state>
+    <state x="1624" y="-299" key="run.anything.popup/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607788343459" />
     <state x="1631" y="-855" width="672" height="678" key="search.everywhere.popup" timestamp="1607620623229">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>

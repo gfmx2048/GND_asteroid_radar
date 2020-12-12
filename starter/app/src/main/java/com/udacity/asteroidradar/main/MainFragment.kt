@@ -5,7 +5,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.adapters.AsteroidAdapter
 import com.udacity.asteroidradar.adapters.AsteroidListener
@@ -29,15 +28,16 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var mBinding: FragmentMainBinding
-    private lateinit var mAdapter: AsteroidAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mBinding = FragmentMainBinding.inflate(inflater)
+
         mBinding.lifecycleOwner = this
+
         mBinding.viewModel = mViewModel
 
-        mAdapter = AsteroidAdapter(AsteroidListener { mViewModel.onAsteroidClicked(it) })
-        mBinding.asteroidRecycler.adapter = mAdapter
+        mBinding.asteroidRecycler.adapter = AsteroidAdapter(AsteroidListener { mViewModel.onAsteroidClicked(it) })
+
 
         setHasOptionsMenu(true)
         subscribeToLiveData()
@@ -49,13 +49,6 @@ class MainFragment : Fragment() {
             it?.let {
                 Timber.d(it)
                 mViewModel.clearErrorResponse()
-            }
-        })
-
-        mViewModel.asteroids.observe(viewLifecycleOwner, {
-            it?.let {
-                mBinding.asteroidRecycler.visibility = View.VISIBLE
-                mAdapter.submitList(it)
             }
         })
 
