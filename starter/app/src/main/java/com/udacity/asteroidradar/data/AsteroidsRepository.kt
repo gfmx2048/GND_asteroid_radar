@@ -150,7 +150,7 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
             }
         }
     }
-    
+
    suspend fun updateFilter(asteroidsFilter: AsteroidsFilter) {
        when(asteroidsFilter){
            AsteroidsFilter.SHOW_TODAY -> {
@@ -159,7 +159,9 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
                todayAsteroids  = Transformations.map(database.asteroidDao.getTodayAsteroids(dates.first())){ it.asDomainModel() }
                asteroidsLD.addSource(todayAsteroids){
                    Timber.d("query found ${it.size} for today ${dates.first()}") // this will be triggered twice, one from the db and one when the retrofit query update the db
-                   it?.let { asteroidsLD.value = it }
+                   if(filter == AsteroidsFilter.SHOW_TODAY){
+                       it?.let { asteroidsLD.value = it}
+                   }
                }
            }
            AsteroidsFilter.SHOW_WEEK -> {
@@ -168,7 +170,9 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
                weekAsteroids  = Transformations.map(database.asteroidDao.getWeekAsteroids(dates.first(), dates.last())){ it.asDomainModel() }
                asteroidsLD.addSource(weekAsteroids){
                    Timber.d("query found ${it.size} for today ${dates.first()} until ${dates.last()}") // this will be triggered twice, one from the db and one when the retrofit query update the db
-                   it?.let { asteroidsLD.value = it }
+                   if(filter == AsteroidsFilter.SHOW_WEEK){
+                       it?.let { asteroidsLD.value = it}
+                   }
                }
            }
            else -> {
@@ -177,7 +181,9 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
                allAsteroids  = Transformations.map(database.asteroidDao.getAllAsteroidsFromTodayIgnorePreviousDays(dates.first())){ it.asDomainModel() }
                asteroidsLD.addSource(allAsteroids){
                    Timber.d("query found ${it.size} for today ${dates.first()} ignoring the previous days}") // this will be triggered twice, one from the db and one when the retrofit query update the db
-                   it?.let { asteroidsLD.value = it }
+                   if(filter == AsteroidsFilter.SHOW_SAVED){
+                       it?.let { asteroidsLD.value = it}
+                   }
                }
            }
        }.also {
