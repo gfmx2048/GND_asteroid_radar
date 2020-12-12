@@ -11,18 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc4fcab-3e25-4cc6-9409-1913daf6e142" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/list_item_asteroid.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-el/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_asteroid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_asteroid.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,10 +211,10 @@
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
     <state x="1675" y="-827" width="586" height="534" key="find.popup/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607453777080" />
-    <state x="1624" y="-299" key="run.anything.popup" timestamp="1607788343459">
+    <state x="1624" y="-299" key="run.anything.popup" timestamp="1607804464253">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state x="1624" y="-299" key="run.anything.popup/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607788343459" />
+    <state x="1624" y="-299" key="run.anything.popup/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607804464253" />
     <state x="1631" y="-855" width="672" height="678" key="search.everywhere.popup" timestamp="1607620623229">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
