@@ -17,22 +17,22 @@
 
         <ImageView
             android:id="@+id/activity_main_image_of_the_day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:adjustViewBounds="true"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/asteroid_safe" />
 
         <ScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:layout_height="match_parent"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_image_of_the_day">
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,18 +45,18 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/tv_label_style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/close_approach_data_title" />
+                        android:text="@string/close_approach_data_title"
+                        android:textColor="@color/default_text_color" />
 
                     <TextView
-                        style="@style/tv_subtitle_style"
                         android:id="@+id/close_approach_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@{asteroid.closeApproachDate}"
+                        android:textColor="@color/default_text_color"
                         tools:text="2020-02-01" />
                 </LinearLayout>
 
@@ -77,14 +77,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/absolute_magnitude_title"
-                            style="@style/tv_label_style" />
+                            android:textColor="@color/default_text_color" />
 
                         <TextView
                             android:id="@+id/absolute_magnitude"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            style="@style/tv_subtitle_style"
+                            android:textColor="@color/default_text_color"
                             app:astronomicalUnitText="@{asteroid.absoluteMagnitude}"
                             tools:text="25.126 au" />
                     </LinearLayout>
@@ -103,14 +103,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/estimated_diameter_title"
-                    style="@style/tv_label_style" />
+                    android:textColor="@color/default_text_color" />
 
                 <TextView
                     android:id="@+id/estimated_diameter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
+                    android:textColor="@color/default_text_color"
                     app:kmUnitText="@{asteroid.estimatedDiameter}"
                     tools:text="0.82 km" />
 
@@ -119,14 +119,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/relative_velocity_title"
-                    style="@style/tv_label_style"/>
+                    android:textColor="@color/default_text_color" />
 
                 <TextView
                     android:id="@+id/relative_velocity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
+                    android:textColor="@color/default_text_color"
                     app:velocityText="@{asteroid.relativeVelocity}"
                     tools:text="11.9 km/s" />
 
@@ -135,19 +135,26 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/distance_from_earth_title"
-                    style="@style/tv_label_style" />
+                    android:textColor="@color/default_text_color" />
 
                 <TextView
                     android:id="@+id/distance_from_earth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
+                    android:textColor="@color/default_text_color"
                     app:astronomicalUnitText="@{asteroid.distanceFromEarth}"
                     tools:text="0.0924 au" />
 
             </LinearLayout>
         </ScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="240dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

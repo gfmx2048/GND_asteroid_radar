@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Asteroid Radar</string>
+    <string name="astronomica_unit_explanation">Η αστρονομική μονάδα (au) είναι μια μονάδα μήκους, περίπου η απόσταση από τη Γη έως τον Ήλιο και ίση με περίπου 150 εκατομμύρια χιλιόμετρα (93 εκατομμύρια μίλια)</string>
+    <string name="astronomical_unit_explanation_button">Αστρονομικός ορισμός μονάδας</string>
+    <string name="potentially_hazardous_asteroid_image">Δυνητικά επικίνδυνη εικόνα αστεροειδών</string>
+    <string name="not_hazardous_asteroid_image">Μη επικίνδυνη εικόνα αστεροειδών</string>
+    <string name="nasa_picture_of_day_content_description_format">Η εικόνα της ημέρας της NASA: %s</string>
+    <string name="this_is_nasa_s_picture_of_day_showing_nothing_yet">Αυτή είναι η εικόνα της ημέρας της NASA, που δεν δείχνει τίποτα ακόμη</string>
+    <string name="displays_the_image_of_the_day">Εμφανίζει την εικόνα της ημέρας</string>
+    <string name="hazardous_or_not">επικίνδυνο ή όχι</string>
+    <string name="image_of_the_day">Εικόνα της ημέρας</string>
+    <string name="next_week_asteroids">Προβολή αστεροειδών εβδομάδας</string>
+    <string name="today_asteroids">Προβολή αστεροειδών σήμερα</string>
+    <string name="saved_asteroids">Προβολή αποθηκευμένων αστεροειδών</string>
+    <string name="close_approach_data_title">Ημερομηνία προσέγγισης</string>
+    <string name="absolute_magnitude_title">Απόλυτο μέγεθος</string>
+    <string name="estimated_diameter_title">Εκτιμώμενη διάμετρος</string>
+    <string name="relative_velocity_title">Σχετική ταχύτητα</string>
+    <string name="distance_from_earth_title">Απόσταση από τη γη</string>
+</resources>

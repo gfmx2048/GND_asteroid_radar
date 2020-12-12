@@ -22,6 +22,7 @@
             android:adjustViewBounds="true"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/asteroid_safe" />
@@ -45,16 +46,16 @@
                     android:orientation="vertical">
 
                     <TextView
-                        style="@style/tv_label_style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/close_approach_data_title" />
+                        android:text="@string/close_approach_data_title"
+                        style="@style/tv_label_tablet_style" />
 
                     <TextView
-                        style="@style/tv_subtitle_style"
                         android:id="@+id/close_approach_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/tv_subtitle_tablet_style"
                         android:layout_marginTop="4dp"
                         android:text="@{asteroid.closeApproachDate}"
                         tools:text="2020-02-01" />
@@ -77,14 +78,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/absolute_magnitude_title"
-                            style="@style/tv_label_style" />
+                            style="@style/tv_label_tablet_style" />
 
                         <TextView
                             android:id="@+id/absolute_magnitude"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            style="@style/tv_subtitle_style"
+                            style="@style/tv_subtitle_tablet_style"
                             app:astronomicalUnitText="@{asteroid.absoluteMagnitude}"
                             tools:text="25.126 au" />
                     </LinearLayout>
@@ -102,15 +103,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/estimated_diameter_title"
-                    style="@style/tv_label_style" />
+                    style="@style/tv_label_tablet_style"
+                    android:text="@string/estimated_diameter_title" />
 
                 <TextView
                     android:id="@+id/estimated_diameter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
+                    style="@style/tv_subtitle_tablet_style"
                     app:kmUnitText="@{asteroid.estimatedDiameter}"
                     tools:text="0.82 km" />
 
@@ -118,15 +119,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/relative_velocity_title"
-                    style="@style/tv_label_style"/>
+                    style="@style/tv_label_tablet_style"
+                    android:text="@string/relative_velocity_title"/>
 
                 <TextView
                     android:id="@+id/relative_velocity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
+                    style="@style/tv_label_tablet_style"
                     app:velocityText="@{asteroid.relativeVelocity}"
                     tools:text="11.9 km/s" />
 
@@ -135,14 +136,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/distance_from_earth_title"
-                    style="@style/tv_label_style" />
+                    style="@style/tv_label_tablet_style" />
 
                 <TextView
                     android:id="@+id/distance_from_earth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/tv_subtitle_tablet_style"
                     android:layout_marginTop="4dp"
-                    style="@style/tv_subtitle_style"
                     app:astronomicalUnitText="@{asteroid.distanceFromEarth}"
                     tools:text="0.0924 au" />
 
