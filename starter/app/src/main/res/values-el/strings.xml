@@ -18,4 +18,5 @@
     <string name="estimated_diameter_title">Εκτιμώμενη διάμετρος</string>
     <string name="relative_velocity_title">Σχετική ταχύτητα</string>
     <string name="distance_from_earth_title">Απόσταση από τη γη</string>
+    <string name="help_button">Κουμπί βοήθειας</string>
 </resources>

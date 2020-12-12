@@ -11,8 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc4fcab-3e25-4cc6-9409-1913daf6e142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/BindingAdapters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/AsteroidsRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/asteroidradar/data/AsteroidsRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-el/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-el/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,10 +177,10 @@
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
     <state x="1548" y="-805" key="AndroidCreateResourceFileDialog/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607802267963" />
-    <state x="1806" y="-770" key="AndroidCreateXmlResourceDialog" timestamp="1607633035496">
+    <state x="1806" y="-770" key="AndroidCreateXmlResourceDialog" timestamp="1607804685088">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>
-    <state x="1806" y="-770" key="AndroidCreateXmlResourceDialog/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607633035496" />
+    <state x="1806" y="-770" key="AndroidCreateXmlResourceDialog/0.0.1536.824/688.-1080.2560.1040@688.-1080.2560.1040" timestamp="1607804685088" />
     <state x="1766" y="-814" key="AndroidProcessChooserDialog" timestamp="1607623642044">
       <screen x="688" y="-1080" width="2560" height="1040" />
     </state>

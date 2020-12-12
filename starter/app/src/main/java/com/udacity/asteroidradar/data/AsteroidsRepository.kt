@@ -150,7 +150,7 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
             }
         }
     }
-
+    
    suspend fun updateFilter(asteroidsFilter: AsteroidsFilter) {
        when(asteroidsFilter){
            AsteroidsFilter.SHOW_TODAY -> {
